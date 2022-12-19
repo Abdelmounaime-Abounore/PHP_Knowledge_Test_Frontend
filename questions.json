@@ -88,7 +88,7 @@
         "right_answer" : "B- Get"
     },
     {
-        "title" : "Q 12 - Which of the following function returns a text in title case from a variable",
+        "title"    : "Q 12 - Which of the following function returns a text in title case from a variable",
         "answer_1" : "A - ucwords($var)",
         "answer_2" : "B - upper($var)",
         "answer_3" : "C - toupper($var)",
