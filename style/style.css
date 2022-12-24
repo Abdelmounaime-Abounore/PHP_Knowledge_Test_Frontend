@@ -83,6 +83,10 @@ body {
   color: #c2c6d7;
   margin: 5px;
 }
+.action a {
+  text-decoration: none;
+  color: #ddd;
+}
 .action button {
   background-color: #32CD32;
   border: none;

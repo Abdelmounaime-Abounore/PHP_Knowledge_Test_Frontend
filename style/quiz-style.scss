@@ -82,7 +82,7 @@
     }
 }
 
-.questions {
+#quiz {
     width: 65%;
     display: block;
     margin: auto;
@@ -107,7 +107,7 @@
             }
         }
 
-        .sumbit-button {
+        #sumbit-button {
             background-color: #32CD32;
             border: none;
             color: white;
@@ -118,6 +118,10 @@
             margin: 15px 15px 0 0;
             cursor: pointer;
             margin-left: 10px;
+        }
+        .submit {
+            display: flex;
+            justify-content: space-between;
         }
     }
 }

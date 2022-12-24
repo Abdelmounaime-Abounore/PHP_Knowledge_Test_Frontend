@@ -78,7 +78,7 @@ body {
   color: gold;
 }
 
-.questions {
+#quiz {
   width: 65%;
   display: block;
   margin: auto;
@@ -88,20 +88,20 @@ body {
   padding: 30px;
   border-radius: 10px;
 }
-.questions .div-answer {
+#quiz .div-answer {
   background-color: #9a93b1;
   border-radius: 5px;
   padding: 13px;
   margin: 10px;
 }
-.questions .div-answer .answer {
+#quiz .div-answer .answer {
   padding: 10px;
   border-bottom: 1px solid rgb(106, 104, 104);
 }
-.questions .div-answer .answer input[type=Radio]:checked + label {
+#quiz .div-answer .answer input[type=Radio]:checked + label {
   color: greenyellow;
 }
-.questions .div-answer .sumbit-button {
+#quiz .div-answer #sumbit-button {
   background-color: #32CD32;
   border: none;
   color: white;
@@ -112,4 +112,8 @@ body {
   margin: 15px 15px 0 0;
   cursor: pointer;
   margin-left: 10px;
+}
+#quiz .div-answer .submit {
+  display: flex;
+  justify-content: space-between;
 }/*# sourceMappingURL=quiz-style.css.map */
