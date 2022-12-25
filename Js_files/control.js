@@ -2,8 +2,10 @@
 // this file contains the scores, the number of questions
 
 
-class Quiz {
+class Quiz extends Questions {
+
     constructor(questions) {
+        super();
         this.score = 0;
         this.questions = questions;
         this.questionIndex = 0;  
@@ -26,7 +28,23 @@ Quiz.prototype.isEnded = function () {
 
 Quiz.prototype.guess = function (answers) {
     this.questionIndex++;
-    if(this.getQuestionIndex().correctAnwer(answers)) {
-        this.score ++;
-    }
+    // if(this.getQuestionIndex().correctAnwer(answers)) {
+    //     this.score ++;
+    // }
+}
+
+Quiz.prototype.displayScore = function() {
+
+
+
+        // if(this.getQuestionIndex()) {
+        //     console.log("ggggggg");
+        //     console(this.getQuestionIndex())
+        //     this.score ++;
+        // }
+
+        this.correctAnswer();
+
+
+        console.log('f2');
 }

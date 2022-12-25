@@ -1,57 +1,3 @@
-
-function populate() {
-    if (quiz.isEnded()) {
-        // showScore ();
-    } else {
-        // show question
-        var element = document.getElementById("question");
-        element.innerHTML = quiz.getQuestionIndex().text;  // return the current question
-
-        // show choices
-        var choices = quiz.getQuestionIndex().choices;   // return the choices of current question 
-        for (var i = 0; i < choices.length; i++) {
-            var element = document.getElementById("answer" + i);
-            element.innerHTML = choices[i];
-            guess("sumbit-button", choices[i]);
-        }
-
-        // show progress 
-        showProgress ();
-    }
-};
-
-
-// function to pass to next question
-
-function guess(id, answers) {
-    var button = document.getElementById(id);
-    button.onclick = function () {
-        quiz.guess(answers);
-        populate();
-    }
-
-    
-}
-
-// function to show progress
-
-function showProgress() {
-   var currentQuestionIndex = quiz.questionIndex + 1;
-   var element = document.getElementById("progress");
-   element.innerHTML = currentQuestionIndex + "/" + quiz.questions.length;
-};
-
-
-// function to show score
-
-function showScore() {
-    var gameOver =  "<h1> Result </h1>";
-    gameOver += "<h2 id 'score'> Your score :" + quiz.score + "</h2>";
-    var element = document.getElementById("quiz");
-    element.innerHTML = gameOver; 
-};
-
-
 var questions = [
 
     new Questions ("Q 1 - Using which of the following way can you embed PHP code in an HTML page?", ["A - &lt;?php PHP code goes here ?>","B - &lt;? PHP code goes here ?>","C - &lt;script language='php'> PHP code goes here &lt;/script>","D - All of the above."], "D - All of the above."),
@@ -84,6 +30,99 @@ var questions = [
     
     new Questions ("Q 15 - Which of the following function is used to set cookie in PHP?", ["A - createcookie()", "B - makecookie()", "C - setcookie()", "D - None of the above"], "C - setcookie()")
 ];
+
+
+
+function populate() {
+    if (quiz.isEnded()) {
+        showScore ();
+    } else {
+        // show question
+        var element = document.getElementById("question");
+        element.innerHTML = quiz.getQuestionIndex().text;  // return the current question
+
+        // show choices
+        var choices = quiz.getQuestionIndex().choices;   // return the choices of current question 
+        for (var i = 0; i < choices.length; i++) {
+            var element = document.getElementById("answer" + i);
+            var ans = document.getElementById("ans" + i);
+            ans.setAttribute("value", choices[i])
+            element.innerHTML = choices[i];
+            guess("sumbit-button", choices[i]);
+        }
+
+        // show progress 
+        showProgress ();
+    }
+};
+
+
+// function to pass to next question
+
+function guess(id, answers) {
+    var button = document.getElementById(id);
+    button.onclick = function () {
+        quiz.guess(answers);
+        populate();
+    }
+
+    
+}
+
+// function to show progress
+
+function showProgress() {
+   var currentQuestionIndex = quiz.questionIndex + 1;
+   var element = document.getElementById("progress");
+   element.innerHTML = currentQuestionIndex + "/" + quiz.questions.length;
+};
+
+var myButton = document.getElementById("sumbit-button");
+
+myButton.addEventListener("click", function(){
+
+
+    const p = this.parentElement.parentElement;
+
+    const answers = p.querySelectorAll(".answer input");
+
+    let choice = "";
+
+    answers.forEach(answer => {
+
+          if(answer.checked){
+            choice = answer.value;
+          }
+
+    });
+
+    let answer = quiz.getQuestionIndex().answer;
+
+
+    if (quiz.correctAnswer(choice, answer)) {
+
+        quiz.score++;
+        console.log("Correct Answer :", quiz.score)
+
+    }else{
+        
+        console.log("Wrong Answer");
+    }
+    
+})
+
+
+// function to show score
+
+function showScore() {
+    quiz.displayScore();
+    var gameOver =  "<h1> Result </h1>";
+    gameOver += "<h2 id 'score'> Your score :" + quiz.score + "</h2>";
+    var element = document.getElementById("quiz");
+    element.innerHTML = gameOver; 
+};
+
+
 
     
 var quiz = new Quiz(questions);
