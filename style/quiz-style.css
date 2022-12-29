@@ -59,7 +59,7 @@ body {
 }
 .progressbar li.active + li:after {
   background-color: rgb(60, 250, 7);
-  height: 1.5px;
+  height: 2px;
 }
 
 .top-side .logo {
@@ -87,6 +87,11 @@ body {
   background-color: #a6a0bc;
   padding: 30px;
   border-radius: 10px;
+}
+#quiz #question {
+  background-color: #aba6b9;
+  padding: 15px;
+  border-radius: 8px;
 }
 #quiz .div-answer {
   background-color: #9a93b1;
@@ -116,4 +121,20 @@ body {
 #quiz .div-answer .submit {
   display: flex;
   justify-content: space-between;
+}
+#quiz #btn {
+  background-color: #2cdc2c;
+  border: none;
+  color: white;
+  padding: 10px 22px;
+  text-align: center;
+  border-radius: 7px;
+  font-size: 16px;
+  margin: 15px 15px 0 0;
+  cursor: pointer;
+  margin-left: 10px;
+}
+#quiz #btn a {
+  text-decoration: none;
+  color: white;
 }/*# sourceMappingURL=quiz-style.css.map */

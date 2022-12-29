@@ -1,7 +1,3 @@
-
-// this file contains the scores, the number of questions
-
-
 class Quiz extends Questions {
 
     constructor(questions) {
@@ -12,9 +8,10 @@ class Quiz extends Questions {
     }
 }
 
+
 // -----------------------------------------------------
 
-Quiz.prototype.getQuestionIndex = function () {
+Quiz.prototype.getQuestion = function () {
     return this.questions[this.questionIndex];   // return question
 }
 
@@ -27,24 +24,15 @@ Quiz.prototype.isEnded = function () {
 // -----------------------------------------------------
 
 Quiz.prototype.guess = function (answers) {
-    this.questionIndex++;
-    // if(this.getQuestionIndex().correctAnwer(answers)) {
-    //     this.score ++;
-    // }
+    for (var i = 0; i < 4; i++) {
+        if (document.getElementsByName('questions')[i].checked == false){
+            document.getElementById("sumbit-button").disabled == true;
+        } else {
+            this.questionIndex++;
+        }
+    }
 }
 
-Quiz.prototype.displayScore = function() {
 
 
 
-        // if(this.getQuestionIndex()) {
-        //     console.log("ggggggg");
-        //     console(this.getQuestionIndex())
-        //     this.score ++;
-        // }
-
-        this.correctAnswer();
-
-
-        console.log('f2');
-}
